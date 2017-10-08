@@ -3,7 +3,8 @@ version: '2.1'
 services:
 
     selenium:
-        build: .
+#        build: .
+        image: phoen1x/selenium-workspace
         shm_size: 2G
         ports:
             - "$PORT_61621_SELENIUM_TCP"

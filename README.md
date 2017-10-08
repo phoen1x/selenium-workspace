@@ -19,12 +19,6 @@ to the original [selenium/standalone-firefox-debug](https://hub.docker.com/r/sel
 
 ## Quick Start
 
-```bash
-# TODO: docker only command
-```
-
-## Usage
-
 Make sure you have a working [Docker](https://docs.docker.com/engine/installation/) and
 [docker-compose](https://docs.docker.com/compose/install/) environment.
 
