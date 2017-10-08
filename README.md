@@ -24,7 +24,7 @@ Make sure you have a working [Docker](https://docs.docker.com/engine/installatio
 
 ```bash
 # download project files
-git clone https://gitlab.com/phoen1x/selenium-workspace.git
+git clone https://github.com/phoen1x/selenium-workspace.git
 cd selenium-workspace
 
 # start docker container
