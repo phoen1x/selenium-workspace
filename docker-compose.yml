@@ -1,0 +1,39 @@
+version: '2.1'
+
+services:
+
+    selenium:
+        build: .
+        shm_size: 2G
+        ports:
+            - "$PORT_61621_SELENIUM_TCP"
+            - "$PORT_61622_SELENIUM_VNC"
+#        volumes:
+#            - "$DEVICE_SHM"
+#            - "$VOLUME_EXCHANGE"
+#            - "$VOLUME_PULSEAUDIO_DBUS"
+#            - "$VOLUME_PULSEAUDIO_MACHINE_ID"
+#            - "$VOLUME_TIME_SYNC"
+        environment:
+            - "$ENV_PULSE_AUDIO_TCP"
+#        devices:
+#            - "$DEVICE_SOUND"
+        logging:
+            driver: "$LOGGING_DRIVER"
+        healthcheck:
+            test: /usr/bin/curl -f http://localhost:4444 || exit 1
+            interval: 10s
+            timeout: 10s
+            retries: 12
+        restart: always
+
+networks:
+    default:
+        driver: bridge
+        driver_opts:
+            com.docker.network.enable_ipv6: "false"
+            com.docker.network.bridge.name: "$NETWORK_BRIDGE"
+        ipam:
+            driver: default
+            config:
+                - subnet: "$NETWORK_SUBNET"
